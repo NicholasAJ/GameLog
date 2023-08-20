@@ -6,6 +6,7 @@ const Register = (props) => {
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
+    username:'',
     email:'',
     password:'',
     confirmPassword:''
@@ -16,6 +17,7 @@ const Register = (props) => {
   }
 
   const submitHandler = (e) =>{
+    console.log('register working?')
     e.preventDefault();
     axios.post('http://localhost:8000/api/register', user, {withCredentials:true})
       .then((res) => {
@@ -38,6 +40,11 @@ const Register = (props) => {
         <div>
           <label>Last Name:</label>
           <input type='text' onChange={changeHandler} value={user.lastName} name='lastName'/>
+        </div>
+
+        <div>
+          <label>Username:</label>
+          <input type='text' onChange={changeHandler} value={user.username} name='username'/>
         </div>
 
         <div>
