@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
   },
   password:{
     type:String,
-    required:[true, 'First name is required'],
+    required:[true, 'Password is required'],
     minLength:[8, 'Password must be at least 8 characters']
   }
 }, {timestamps:true})

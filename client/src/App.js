@@ -1,26 +1,31 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import React from 'react';
+import React, {useState} from 'react';
+import axios from 'axios'
 import Register from './components/RegisterUser'
 import Dashboard from './components/Dashboard';
 import Login from './components/LoginUser'
+import CreateGame from './components/CreateGame';
+import Detail from './components/Detail';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-      <BrowserRouter>
-        <Routes>
-          {/* user routes */}
-          <Route path='/' element={<Register/>} />
-          <Route path='/login'element={<Login/>}/>
-          <Route path='/dashboard' element={<Dashboard/>}/>
-          <Route path='/logout'/>
+  const [games, setGames] = useState([]);
 
-          {/* video game post routes */}
-        </Routes>
-      </BrowserRouter>
-    </div>
+
+  return (
+      <div className="App">
+
+          <BrowserRouter>
+              <Routes>
+              <Route path='/' element={<Register/>} />
+              <Route path='/login'element={<Login/>}/>
+              <Route path='/dashboard' element={<Dashboard games={games} />}/>
+              <Route path='/games/create' element={<CreateGame games={games} setGames={setGames} />} />
+              <Route path="/games/:id" element={<Detail/>} />
+              <Route path='/logout'/>
+              </Routes>
+          </BrowserRouter>
+      </div>
   );
 }
 
