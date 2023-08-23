@@ -12,4 +12,7 @@ app.use(cookieParser());
 const UserRoutes = require('./routes/userRoutes')
 UserRoutes(app);
 
+const GameRoutes = require('./routes/gamelogRoutes')
+GameRoutes(app);
+
 app.listen(8000, () => console.log("Commander, the server is running on port 8000"));

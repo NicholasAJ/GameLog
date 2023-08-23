@@ -1,9 +1,9 @@
 const gamelogController = require("../controllers/gamelogController");
 
 module.exports = (app) => {
-  app.post('/api/create/game', gamelogController.createGame);
-  app.get('/api/read/game', gamelogController.getOneGame);
-  app.get('/api/read/game/all', gamelogController.getAllGames);
-  app.put('/api/update/game', gamelogController.updateGame);
-  app.delete('/api/delete/game', gamelogController.deleteGame);
+  app.post('/api/game/create', gamelogController.createGame);
+  app.get('/api/game/read/:id', gamelogController.getOneGame);
+  app.get('/api/game/all', gamelogController.getAllGames);
+  app.put('/api/game/update/:id', gamelogController.updateGame);
+  app.delete('/api/game/delete/:id', gamelogController.deleteGame);
 }
