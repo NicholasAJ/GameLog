@@ -21,10 +21,10 @@ const Detail = (props) => {
                 <Link to={'/dashboard'} style={{marginTop : "-55px"}}>Dashboard</Link>
             </div>
         <div>
-        <p>Genre: {game.Genre} </p> 
-        <p>Date Created: {game.DateCreated}</p>
-        <p>Version: {game.Version} </p>
-        <p>Console: {game.Console} </p>
+          <p>Genre: {game.Genre} </p> 
+          <p>Date Created: {game.DateCreated}</p>
+          <p>Version: {game.Version} </p>
+          <p>Console: {game.Console} </p>
         </div>
         <div>
             <Link to={`/games/edit/${game._id}`} className='btn btn-primary'>Edit Game</Link>
