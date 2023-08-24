@@ -32,23 +32,31 @@ const Login = (props) => {
   }
   return(
     <div>
-      <h1>Login Page</h1>
-      <div>
-        <form onSubmit={loginHandler}>
-          {errors.map((err, index) => (
-            <p key="{index}">{err}</p>
-          ))}
+      <div className='loginPage'>
+        <div className='header'>
+          <p id='game'>Game</p>
+          <p id='log'>Log</p>
+        </div>
+        <div className='loginForm'>
+          <h1>Login Page</h1>
           <div>
-            <label>Email:</label>
-            <input type='text'  name='email' value={userLogin.email} onChange={changeHandler}></input>
+            <form onSubmit={loginHandler}>
+              {errors.map((err, index) => (
+                <p key="{index}">{err}</p>
+              ))}
+              <div>
+                <label>Email:</label>
+                <input type='text'  name='email' value={userLogin.email} onChange={changeHandler}></input>
+              </div>
+              <div>
+                <label>Password:</label>
+                <input type='password' name='password' value={userLogin.password} onChange={changeHandler}></input>
+              </div>
+              <button>Login</button>
+            </form>
+            <Link to='/'>Don't have an account? Register here</Link>
           </div>
-          <div>
-            <label>Password:</label>
-            <input type='password' name='password' value={userLogin.password} onChange={changeHandler}></input>
-          </div>
-          <button>Login</button>
-        </form>
-        <Link to='/'>Don't have an account? Register here</Link>
+        </div>
       </div>
     </div>
   )
