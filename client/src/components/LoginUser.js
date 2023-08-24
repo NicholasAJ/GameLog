@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = (props) => {
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const [userLogin, setUserLogin] = useState({
     email:'',
@@ -21,6 +22,12 @@ const Login = (props) => {
       })
       .catch((err) => {
         console.log(err);
+        const errorResponse =err.response.data.errors;
+        const errorArr = [];
+        for(const key of Object.keys(errorResponse)){
+          errorArr.push(errorResponse[key].message)
+        }
+        setErrors(errorArr);
       });
   }
   return(
@@ -28,6 +35,9 @@ const Login = (props) => {
       <h1>Login Page</h1>
       <div>
         <form onSubmit={loginHandler}>
+          {errors.map((err, index) => (
+            <p key="{index}">{err}</p>
+          ))}
           <div>
             <label>Email:</label>
             <input type='text'  name='email' value={userLogin.email} onChange={changeHandler}></input>
