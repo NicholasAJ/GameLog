@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -45,6 +45,7 @@ const Dashboard = (props) => {
           ))}
         </tbody>
       </table>
+      <Link to='/games/create'> Create Game </Link>
     </div>
   )
 }
