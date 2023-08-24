@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios'
 
 const Detail = (props) => {
@@ -17,11 +17,12 @@ const Detail = (props) => {
     <div>
         <h1>{game.GameName}</h1>
         <div>
-        <p>Genre: {game.Genre} </p> 
-        <p>Date Created: {game.DateCreated}</p>
-        <p>Version: {game.Version} </p>
-        <p>Console: {game.Console} </p>
+          <p>Genre: {game.Genre} </p> 
+          <p>Date Created: {game.DateCreated}</p>
+          <p>Version: {game.Version} </p>
+          <p>Console: {game.Console} </p>
         </div>
+        <Link to='/game/update/${game.id}' >Edit Game</Link>
     </div>
   )
 }
