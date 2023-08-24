@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/LoginUser'
 import CreateGame from './components/CreateGame';
 import Detail from './components/Detail';
+import UpdateGame from './components/UpdateGame';
 
 function App() {
   const [games, setGames] = useState([]);
@@ -30,6 +31,7 @@ function App() {
               <Route path='/dashboard' element={<Dashboard games={games} />}/>
               <Route path='/games/create' element={<CreateGame games={games} setGames={setGames} />} />
               <Route path="/games/:id" element={<Detail/>} />
+              <Route path="/game/update/:id" element={<UpdateGame/>}/>
               <Route path='/logout'/>
               </Routes>
           </BrowserRouter>
