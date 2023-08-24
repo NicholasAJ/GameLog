@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams,Link } from 'react-router-dom';
+import { useNavigate, useParams,Link } from 'react-router-dom';
 import axios from 'axios'
 
 const Detail = (props) => {
+    const navigate = useNavigate();
     const [game, setGame] = useState({});
     const {id} = useParams();
     useEffect(() => {
@@ -13,6 +14,14 @@ const Detail = (props) => {
             })
             .catch(err => console.log(err));
     }, [id]);
+    const deleteHandler = () => {
+      axios.delete(`http://localhost:8000/api/game/delete/${game._id}`, {withCredentials:true})
+        .then(res => {
+          // removeFromDom(reviewid)
+          navigate('/dashboard');
+        })
+        .catch(err => console.log(err))
+    }
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <h1>{game.GameName}</h1>
@@ -28,6 +37,7 @@ const Detail = (props) => {
         </div>
         <div>
             <Link to={`/games/edit/${game._id}`} className='btn btn-primary'>Edit Game</Link>
+            <button onClick={(e) => {deleteHandler()}}>Delete</button>
         </div>
     </div>
   )
