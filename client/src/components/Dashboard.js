@@ -23,24 +23,24 @@ const Dashboard = (props) => {
       <button onClick={logout}>Logout</button>
 
       <h2>List of Games</h2>
-      <table>
+      <table className='table table-bordered'>
         <thead>
           <tr>
-            <th>Game Name</th>
-            <th>Genre</th>
-            <th>Date Created</th>
-            <th>Version</th>
-            <th>Console</th>
+            <th style={{textAlign:"center"}}>Game Name</th>
+            <th style={{textAlign:"center"}}>Genre</th>
+            <th style={{textAlign:"center"}}>Date Created</th>
+            <th style={{textAlign:"center"}}>Version</th>
+            <th style={{textAlign:"center"}}>Console</th>
           </tr>
         </thead>
         <tbody>
           {games.map((game) => (
             <tr key={game._id}>
-              <Link to={`/games/${game._id}`}> {game.GameName} </Link>
-              <td>{game.Genre}</td>
-              <td>{game.DateCreated}</td>
-              <td>{game.Version}</td>
-              <td>{game.Console}</td>
+              <Link to={`/games/${game._id}`} style={{display: "flex",justifyContent:"center"}}> {game.GameName} </Link>
+              <td style={{textAlign:"center"}}>{game.Genre}</td>
+              <td style={{textAlign:"center"}}>{game.DateCreated}</td>
+              <td style={{textAlign:"center"}}>{game.Version}</td>
+              <td style={{textAlign:"center"}}>{game.Console}</td>
             </tr>
           ))}
         </tbody>
