@@ -22,7 +22,7 @@ const Detail = (props) => {
           <p>Version: {game.Version} </p>
           <p>Console: {game.Console} </p>
         </div>
-        <Link to='/game/update/${game.id}' >Edit Game</Link>
+        <Link to={`/game/update/${id}`} >Edit Game</Link>
     </div>
   )
 }

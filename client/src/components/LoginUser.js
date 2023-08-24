@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const Login = (props) => {
   const navigate = useNavigate();
+  const [errors, setErrors] = useState([]);
   const [userLogin, setUserLogin] = useState({
     email:'',
     password:'',
@@ -21,6 +22,7 @@ const Login = (props) => {
       })
       .catch((err) => {
         console.log(err);
+        setErrors(err.response.data.errors);
       });
   }
   return(
@@ -28,13 +30,22 @@ const Login = (props) => {
       <h1>Login Page</h1>
       <div>
         <form onSubmit={loginHandler}>
+          {Object.keys(errors).map((key) => (
+            <p key={key}>{errors[key].message}</p>
+          ))}
           <div>
             <label>Email:</label>
             <input type='text'  name='email' value={userLogin.email} onChange={changeHandler}></input>
+            { errors.email ?
+              <p>{errors.email.message}</p>
+            :null}
           </div>
           <div>
             <label>Password:</label>
             <input type='password' name='password' value={userLogin.password} onChange={changeHandler}></input>
+            { errors.password ?
+            <p>{errors.password.message}</p> 
+            :null}
           </div>
           <button>Login</button>
         </form>
