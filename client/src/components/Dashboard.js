@@ -45,6 +45,7 @@ const Dashboard = (props) => {
           ))}
         </tbody>
       </table>
+      <Link to='/games/create'> Create Game </Link>
     </div>
   )
 }
