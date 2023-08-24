@@ -34,16 +34,20 @@ const getOneGame = (req,res) => {
   });
 };
 const updateGame = (req,res) => {
-  Game.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
-  .then(updatedGame => {
-    console.log(updatedGame);
-    res.json(updatedGame)
-  })
-  .catch(err => {
-    console.log("error UPDATING game",err);
-    res.json(400).json(err)
-  })
-}
+  Game.findOneAndUpdate(
+    { _id: req.params.id },
+    req.body,
+    { new: true }
+  )
+    .then(updatedGame => {
+      console.log(updatedGame);
+      res.json(updatedGame);
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json({ error: 'An error occurred while updating the game.' });
+    });
+};
 const deleteGame = (req,res) => {
   Game.deleteOne({_id:req.params.id})
   .then(deleteConfirmation => {

@@ -38,7 +38,10 @@ const CreateGame = (props) => {
 
   return (
     <div>
-        <h1>New Video Game</h1>
+        <div style={{display: "flex",justifyContent:"space-around"}}>
+            <h1>New Video Game</h1>
+            <Link to={'/dashboard'}>Dashboard</Link>
+        </div>
         <div>
             <form onSubmit={onSubmitHandler}>
                 <p>
@@ -53,7 +56,7 @@ const CreateGame = (props) => {
                         <input type="text" name='Genre' value={Genre} onChange={(e) =>setGenre(e.target.value)}/>
                     </p>
                     <p>
-                        <label>Date Created:</label>
+                        <label>Year Created:</label>
                         <input type="number" name='DateCreated' value={DateCreated} onChange={(e) =>setDateCreated(e.target.value)}/>
                     </p>
                     <p>
