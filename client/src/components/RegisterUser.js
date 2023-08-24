@@ -30,40 +30,48 @@ const Register = (props) => {
   }
   return(
     <div>
-      <h1>Register User</h1>
-      <form onSubmit={submitHandler}>
-        <div>
-          <label>First Name:</label>
-          <input type='text' onChange={changeHandler} value={user.firstName} name='firstName'/>
+      <div className='loginPage'>
+        <div className='header'>
+          <p id='game'>Game</p>
+          <p id='log'>Log</p>
         </div>
+        <div className='loginForm'>
+          <h1>Register User</h1>
+          <form onSubmit={submitHandler}>
+            <div>
+              <label>First Name:</label>
+              <input type='text' onChange={changeHandler} value={user.firstName} name='firstName'/>
+            </div>
 
-        <div>
-          <label>Last Name:</label>
-          <input type='text' onChange={changeHandler} value={user.lastName} name='lastName'/>
-        </div>
+            <div>
+              <label>Last Name:</label>
+              <input type='text' onChange={changeHandler} value={user.lastName} name='lastName'/>
+            </div>
 
-        <div>
-          <label>Username:</label>
-          <input type='text' onChange={changeHandler} value={user.username} name='username'/>
-        </div>
+            <div>
+              <label>Username:</label>
+              <input type='text' onChange={changeHandler} value={user.username} name='username'/>
+            </div>
 
-        <div>
-          <label>Email:</label>
-          <input type='text' onChange={changeHandler} value={user.email} name='email'/>
-        </div>
+            <div>
+              <label>Email:</label>
+              <input type='text' onChange={changeHandler} value={user.email} name='email'/>
+            </div>
 
-        <div>
-          <label>Password</label>
-          <input type='password' onChange={changeHandler} value={user.password} name='password'/>
-        </div>
+            <div>
+              <label>Password</label>
+              <input type='password' onChange={changeHandler} value={user.password} name='password'/>
+            </div>
 
-        <div>
-          <label>ConfirmPassword</label>
-          <input type='password' onChange={changeHandler} value={user.confirmPassword} name='confirmPassword'/>
+            <div>
+              <label>ConfirmPassword</label>
+              <input type='password' onChange={changeHandler} value={user.confirmPassword} name='confirmPassword'/>
+            </div>
+            <button type='submit'>Register</button>
+          </form>
+          <Link to='/login'>Already have an account? Login here!</Link>
         </div>
-        <button type='submit'>Register</button>
-      </form>
-      <Link to='/login'>Already have an account? Login here!</Link>
+      </div>
     </div>
   )};
 
