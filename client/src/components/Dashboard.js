@@ -35,7 +35,7 @@ const Dashboard = (props) => {
         <button onClick={logout} className='btn btn-danger' style={{marginTop : "-55px", height: "50%"}}>Logout</button>
         </div>
       </div>
-      <h2>List of Games</h2>
+      <h2>List of Games </h2>
       <table className='table table-bordered'>
         <thead>
           <tr>
