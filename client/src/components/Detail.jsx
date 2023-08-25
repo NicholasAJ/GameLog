@@ -37,7 +37,7 @@ const Detail = (props) => {
         </div>
         <div>
             <Link to={`/games/edit/${game._id}`} className='btn btn-primary'>Edit Game</Link>
-            <button onClick={(e) => {deleteHandler()}}>Delete</button>
+            <button onClick={(e) => {deleteHandler()}} className='btn btn-danger'>Delete</button>
         </div>
     </div>
   )
