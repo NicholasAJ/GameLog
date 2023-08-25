@@ -31,10 +31,6 @@ const Register = (props) => {
   return(
     <div>
       <div className='loginPage'>
-        <div className='header'>
-          <p id='game'>Game</p>
-          <p id='log'>Log</p>
-        </div>
         <div className='loginForm'>
           <h1>Register User</h1>
           <form onSubmit={submitHandler}>

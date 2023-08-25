@@ -16,7 +16,10 @@ function App() {
 
   return (
       <div className="App">
-
+        <div className='header'>
+            <p id='game'>Game</p>
+            <p id='log'>Log</p>
+        </div>
           <BrowserRouter>
               <Routes>
               <Route path='/' element={<Register/>} />
